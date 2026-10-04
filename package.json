@@ -1,0 +1,18 @@
+{
+  "name": "tricktic-legal",
+  "version": "1.0.0",
+  "private": true,
+  "description": "TrickTic app legal documents, served at legal.tricktic.com",
+  "type": "module",
+  "packageManager": "pnpm@11.5.2",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "build": "scripts/dev/node.sh src/build.ts",
+    "test": "scripts/dev/node.sh --test \"test/**/*.test.ts\"",
+    "check": "scripts/dev/check.sh",
+    "check:live": "scripts/dev/node.sh scripts/check-live.ts",
+    "serve": "scripts/dev/node.sh scripts/dev/serve.ts"
+  }
+}

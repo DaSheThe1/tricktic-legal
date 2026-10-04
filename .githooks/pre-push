@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+#
+# Pre-push gate: docs/ must match a fresh build and every test must pass.
+# There is no cloud CI. Activated per clone by scripts/dev/install-git-hooks.sh
+# (core.hooksPath -> .githooks). Bypass in a pinch with --no-verify.
+#
+set -euo pipefail
+
+repo_root="$(git rev-parse --show-toplevel)"
+
+# Skip delete-only pushes (nothing new to check).
+have_updates=0
+while read -r _ local_sha _ _; do
+  if [ -n "${local_sha:-}" ] && [ "$local_sha" != "0000000000000000000000000000000000000000" ]; then
+    have_updates=1
+  fi
+done
+[ "$have_updates" -eq 0 ] && exit 0
+
+echo "pre-push: running scripts/dev/check.sh..."
+if ! "$repo_root/scripts/dev/check.sh"; then
+  echo "pre-push: check failed, push aborted. Bypass with 'git push --no-verify'." >&2
+  exit 1
+fi
