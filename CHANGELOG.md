@@ -8,6 +8,8 @@ All notable changes to what legal.tricktic.com serves. The format follows
 
 - Docs: the old addresses are redirected by tricktic.com's nginx
   (tricktic-infra), not a Cloudflare rule. No change to the site.
+- Live on legal.tricktic.com since 2026-10-05. The repository moved to the
+  TrickTicAI organization, which has verified tricktic.com for GitHub Pages.
 
 ## [1.0.0] - 2026-10-05
 

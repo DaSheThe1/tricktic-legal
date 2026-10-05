@@ -45,26 +45,24 @@ Repository settings: Settings → Pages → Build and deployment → Source "Dep
 from a branch", branch `main`, folder `/docs`. Custom domain
 `legal.tricktic.com`, with "Enforce HTTPS" on.
 
-## Go-live checklist
+## Go-live
 
-Not done yet. Each step needs Daniel's go-ahead.
+Done on 2026-10-05:
 
-1. Make the repository public (GitHub Pages on a free plan needs a public
-   repository).
-2. Settings → Pages: deploy from branch `main`, folder `/docs`.
-3. Settings → Pages: custom domain `legal.tricktic.com`, then turn on
-   "Enforce HTTPS" once the certificate is issued.
-4. Cloudflare DNS for `tricktic.com`: add `CNAME legal → dashethe1.github.io`
-   set to **DNS only** (grey cloud). If it is proxied, Cloudflare injects its
-   analytics beacon into the pages, which state the apps have no tracking.
-5. tricktic-infra: set `legal` to `live` in `sites.json` and deploy the edge
-   (its `docs/cutover.md`, step 3). The old addresses then redirect here.
-6. Run `pnpm check:live` and fix anything it reports.
-7. Then, at your own pace, point these at the new URLs:
-   - Play Console: the TrickTic Timer and TrickTic Dictate privacy policy URLs.
-   - TikTok developer console: the privacy policy and terms of service URLs.
-   - TrickTic Dictate's compiled `LegalLinks` (the Dictate app's source).
+1. **The repository:** public, under the TrickTicAI organization. That
+   organization has verified `tricktic.com` for GitHub Pages, so only its
+   repositories can publish on `tricktic.com` and its subdomains.
+2. **Settings → Pages:** deploy from branch `main`, folder `/docs`, with the
+   custom domain `legal.tricktic.com` and "Enforce HTTPS" on.
+3. **Cloudflare DNS:** `CNAME legal → trickticai.github.io`, **DNS only**
+   (grey cloud), and it stays that way. Proxied, Cloudflare would inject its
+   analytics beacon into pages that state the apps have no tracking, and
+   GitHub's certificate renewals would fail.
+4. **tricktic-infra:** `legal` is `live` in `sites.json`, so every old
+   address redirects here.
+5. **`pnpm check:live`** passes.
 
-If the repository moves to Daniel's new GitHub organization, the DNS target
-changes to `<org>.github.io` and the custom domain is set again on the moved
-repository.
+Still to do, at Daniel's pace, is pointing these at the new URLs:
+- Play Console: the TrickTic Timer and TrickTic Dictate privacy policy URLs.
+- TikTok developer console: the privacy policy and terms of service URLs.
+- TrickTic Dictate's compiled `LegalLinks` (the Dictate app's source).
