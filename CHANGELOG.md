@@ -4,6 +4,11 @@ All notable changes to what legal.tricktic.com serves. The format follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and the version is
 `version` in `package.json`: PATCH for a fix, MINOR for a new document.
 
+## [Unreleased]
+
+- Docs: the old addresses are redirected by tricktic.com's nginx
+  (tricktic-infra), not a Cloudflare rule. No change to the site.
+
 ## [1.0.0] - 2026-10-05
 
 ### Added
