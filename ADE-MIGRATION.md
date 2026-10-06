@@ -13,10 +13,38 @@ its generated `docs/` through GitHub Pages. Review the new terms before merge.
 The terms preserve the agreed five-customer, one-month-free pilot; no card,
 subscription or automatic charge. They address authorized machine/account access,
 agent actions, third-party costs, content ownership and limited processing
-permission, reasonable suspension, availability, deletion and contact. They do
-not introduce a damages cap, compulsory arbitration, exclusive court, blanket
-waiver of claims or new paid product. The owner must approve this new contract;
-these pages do not prove acceptance recording or legal enforceability.
+permission, reasonable suspension, availability, deletion and contact. These
+pages do not prove acceptance recording or legal enforceability.
+
+### Owner decisions (Daniel, in chat, 2026-10-06)
+
+Already confirmed before this review: operator brand TrickTic and
+contact@tricktic.com (privacy approval 2026-09-29); five invited users, free
+for one month from activation, no card or automatic charge (remote-sessions
+`docs/plans/hosted-ade-release.md`); 18+ intended audience (2026-09-30 Play
+declaration). Source check: the hosted server calls only Google (sign-in,
+notifications) and OpenAI (voice), matching the approved privacy provider list.
+
+Decided on 2026-10-06:
+
+- Operator named as **TrickTic (Daniel Shedrinsky)**; no postal address.
+- Users must be **18 or older**.
+- Pilot offer unchanged for now. A later switch to card payment or no free month
+  needs a terms revision and notice; the terms already require separate
+  agreement before any charge.
+- If access does not continue after the pilot: **at least 30 days' notice**,
+  then the hosted account is deleted like a normal deletion request.
+- Notice of planned material changes or shutdown: **"where practical"**, no
+  fixed number of days.
+- Liability: excluded **to the fullest extent permitted by law**, including
+  agent actions, lost files/data and indirect damage. Daniel asked that users
+  not be able to blame him for anything; a blanket waiver cannot override
+  non-waivable rights, so the carve-out for fraud, intentional harm, gross
+  negligence, death/personal injury and mandatory consumer rights stays.
+- **Israeli law** governs, without a forced court: consumers keep the
+  mandatory protections and courts of their own country.
+
+Final wording approval: pending Daniel's review of the rendered terms.
 
 The mandatory-rights wording follows the principle that consumer contracts
 cannot override non-waivable rights; see the European Commission's

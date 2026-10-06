@@ -35,6 +35,12 @@ test("ADE terms preserve the agreed free pilot and access boundaries", () => {
     "not a backup service or a security sandbox",
     "Nothing in these terms excludes liability that cannot lawfully be excluded",
     "not a full backup of every session or project",
+    "operated by TrickTic (Daniel Shedrinsky)",
+    "at least 18 years old",
+    "at least 30 days' notice before deleting your hosted account",
+    "To the fullest extent permitted by applicable law",
+    "governed by the laws of the State of Israel",
+    "mandatory laws of the country where you live",
   ]) assert.ok(visible.includes(clause), clause);
   assert.ok(links(html).some(link => link.href === "https://legal.tricktic.com/tricktic-ade/privacy"));
   assert.ok(links(html).some(link => link.href === "https://ade.tricktic.com/account/delete"));

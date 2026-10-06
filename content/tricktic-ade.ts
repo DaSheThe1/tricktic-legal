@@ -168,18 +168,19 @@ export const trickticAdeTermsOfUse: AppDocument = {
   title: "TrickTic ADE Terms of Service",
   lastUpdated: "Last updated: October 6, 2026",
   description: "Terms for the invitation-only TrickTic ADE hosted pilot and its connected clients and daemons.",
-  intro: [{ type: "paragraph", text: "These terms apply to the invitation-only TrickTic ADE hosted service, operated by TrickTic, and the clients and daemons you use to connect to it. Please read them before accepting an invitation or using the service. By using the service, you agree to these terms. If you do not agree, do not use the service." }],
+  intro: [{ type: "paragraph", text: "These terms apply to the invitation-only TrickTic ADE hosted service, operated by TrickTic (Daniel Shedrinsky), and the clients and daemons you use to connect to it. Please read them before accepting an invitation or using the service. By using the service, you agree to these terms. If you do not agree, do not use the service." }],
   sections: [
     { heading: "1. The service", blocks: [
       { type: "paragraph", text: "TrickTic ADE lets you access coding-agent sessions and browser terminals on computers you connect, including from another browser or device. Supported platforms, available features and resource limits are described in the current installation instructions. A connected computer and its agent providers must be available for work to run. The service is not a backup service or a security sandbox for executing untrusted code." },
     ] },
     { heading: "2. Your account and connected computers", blocks: [
-      { type: "paragraph", text: "You must have the legal capacity and any permission needed to use the service. If you act for an organization, you must have authority to do so. Use your own invited Google identity, keep access credentials and invitation or enrollment codes private, and tell us promptly if you believe your account has been compromised." },
+      { type: "paragraph", text: "You must be at least 18 years old and have the legal capacity and any permission needed to use the service. If you act for an organization, you must have authority to do so. Use your own invited Google identity, keep access credentials and invitation or enrollment codes private, and tell us promptly if you believe your account has been compromised." },
       { type: "paragraph", text: "Connect only computers, operating-system accounts, project folders and provider accounts that you own or are authorized to control. Choose allowed project folders carefully and revoke devices you no longer use. The daemon and agent tools run with the permissions of their operating-system account. Memory limits do not prevent every harmful action or isolate arbitrary code from your files and credentials." },
     ] },
     { heading: "3. Free pilot and future pricing", blocks: [
       { type: "paragraph", text: "The initial pilot is limited to five invited customers and is free for one month from each customer's activation. No payment method is required for this pilot, and it does not automatically turn into a paid subscription or generate an automatic charge. Your own agent-provider subscriptions, API usage, internet and computer costs remain yours." },
       { type: "paragraph", text: "At the end of the pilot we will tell you whether hosted access will continue, change or end. Any paid offer will state its price and terms separately and require your agreement before a charge. Ending hosted access does not authorize us to delete your local projects or force-stop work running on your computers." },
+      { type: "paragraph", text: "If your hosted access does not continue after the pilot, we will give you at least 30 days' notice before deleting your hosted account. During that time you can download the account data summary or delete the account yourself. After the notice period we delete the hosted account in the same way as a deletion request, as described in the privacy policy." },
     ] },
     { heading: "4. Agent actions and third-party services", blocks: [
       { type: "paragraph", text: "Coding agents and shell commands can change or delete files, run programs, install dependencies and communicate with external services. Review the permissions and instructions you give them, keep backups of important work, and check generated code and other results before relying on or publishing them. Generated output may be inaccurate, insecure or inappropriate for your intended use." },
@@ -199,16 +200,21 @@ export const trickticAdeTermsOfUse: AppDocument = {
     ] },
     { heading: "7. Availability, changes and suspension", blocks: [
       { type: "paragraph", text: "This is an early pilot. Features and limits may change, and outages, lost connections or errors can occur. We do not offer an uptime or response-time guarantee for the free pilot. We may limit or suspend hosted access when reasonably necessary to address misuse, security risks, legal obligations or operational failures. Where practical, we will explain the reason and give notice of a planned material change or discontinuation; urgent security or legal action may require immediate restrictions." },
-      { type: "paragraph", text: "Except for rights that applicable law does not allow us to limit, the pilot is provided as available without a promise that it will always be uninterrupted, error-free or suitable for a particular purpose. Nothing in these terms excludes liability that cannot lawfully be excluded or takes away mandatory consumer rights or remedies. These terms do not require you to waive a legal claim or agree to compulsory arbitration." },
     ] },
-    { heading: "8. Leaving the service and deleting your account", blocks: [
+    { heading: "8. No warranty and limitation of liability", blocks: [
+      { type: "paragraph", text: "The pilot is provided free of charge, “as is” and “as available”, without any warranty that it will be uninterrupted, error-free, secure or suitable for a particular purpose." },
+      { type: "paragraph", text: "To the fullest extent permitted by applicable law, TrickTic and Daniel Shedrinsky are not liable for any loss or damage arising from your use of, or inability to use, the service. This includes lost or changed files, data or work; actions taken by coding agents or commands run on your computers; outages, errors or lost connections; third-party services and agent providers; and lost profits or any indirect, incidental or consequential damage. You are responsible for the computers, folders and accounts you connect, the permissions you give agents and keeping backups of your work." },
+      { type: "paragraph", text: "Nothing in these terms excludes liability that cannot lawfully be excluded, such as liability for fraud, intentional harm or gross negligence, or for death or personal injury caused by negligence, or takes away mandatory consumer rights or remedies." },
+    ] },
+    { heading: "9. Leaving the service and deleting your account", blocks: [
       { type: "linked-paragraph", parts: ["You can stop using the service and request deletion through ", { text: "Delete your hosted account", href: "https://ade.tricktic.com/account/delete" }, ". The privacy policy explains which hosted data is removed, which records remain and how existing backups expire. The account export is a data summary, not a full backup of every session or project."] },
       { type: "paragraph", text: "Deleting the hosted account does not uninstall the daemon, delete local files or projects, terminate your provider accounts or delete your Google account. You manage those separately. Previously completed agent actions are not undone by signing out, revoking access or deleting the hosted account." },
     ] },
-    { heading: "9. Changes to these terms", blocks: [
+    { heading: "10. Changes to these terms", blocks: [
       { type: "paragraph", text: "We will identify revisions with an updated date and notify affected users of material changes before they apply where practical and as required by law. Changes do not retrospectively authorize new uses of previously collected information or introduce charges without agreement. If you do not accept a material change, you can stop using the service and request account deletion. Mandatory rights continue to apply." },
     ] },
-    { heading: "10. Contact and disputes", blocks: [
+    { heading: "11. Governing law, contact and disputes", blocks: [
+      { type: "paragraph", text: "These terms are governed by the laws of the State of Israel. If you use the service as a consumer, this does not take away the protection of mandatory laws of the country where you live, and you may bring a claim in any court available to you under those laws." },
       { type: "email", label: "For support, a concern about these terms or a dispute, contact:", address: "contact@tricktic.com" },
       { type: "paragraph", text: "We will consider concerns in good faith. Contacting us does not limit your right to approach a competent court, consumer authority or other legally available dispute-resolution body, and these terms do not shorten statutory time limits." },
     ] },
