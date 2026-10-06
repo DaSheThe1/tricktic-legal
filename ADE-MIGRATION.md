@@ -44,7 +44,7 @@ Decided on 2026-10-06:
 - **Israeli law** governs, without a forced court: consumers keep the
   mandatory protections and courts of their own country.
 
-Final wording approval: pending Daniel's review of the rendered terms.
+Final wording approval: **approved by Daniel in chat on 2026-10-06** (terms at commit fb3788c). Approval of wording is not authorization to merge or publish.
 
 The mandatory-rights wording follows the principle that consumer contracts
 cannot override non-waivable rights; see the European Commission's
