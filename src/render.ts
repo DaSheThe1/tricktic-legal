@@ -132,6 +132,15 @@ function renderBlock(block: LegalBlock): string[] {
   switch (block.type) {
     case "paragraph":
       return [`<p class="paragraph">${escapeText(block.text)}</p>`];
+    case "linked-paragraph":
+      return [`<p class="paragraph">${block.parts.map((part) => {
+        if (typeof part === "string") return escapeText(part);
+        const url = new URL(part.href);
+        if (!["https:", "mailto:"].includes(url.protocol) || url.username || url.password) {
+          throw new Error("Legal references require HTTPS or mailto without credentials");
+        }
+        return `<a class="link" href="${escapeAttribute(part.href)}">${escapeText(part.text)}</a>`;
+      }).join("")}</p>`];
     case "email":
       return [
         `<p class="paragraph">${escapeText(block.label)} <a class="link" href="mailto:${escapeAttribute(block.address)}">${escapeText(block.address)}</a></p>`,

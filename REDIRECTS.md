@@ -59,3 +59,15 @@ Notes:
    those documents. The redirect covers it until then.
 4. automations-website can then drop its `/legal` routes; nginx redirects
    before a request reaches the app.
+
+## ADE migration (prepared; activate after publication)
+
+| Old URL | New URL |
+| --- | --- |
+| https://ade.tricktic.com/privacy | https://legal.tricktic.com/tricktic-ade/privacy |
+
+The ADE origin owns this redirect, not tricktic-infra. Preserve the old address
+until the canonical policy returns 200. `/tricktic-ade/terms` is new and has no
+previously published address. Optional ADE `/terms` and `/terms-of-service`
+redirects can point to it after publication. Account deletion and support remain
+functional at the ADE origin. See [ADE-MIGRATION.md](ADE-MIGRATION.md).

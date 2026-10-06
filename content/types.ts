@@ -15,6 +15,8 @@
 
 export type LegalBlock =
   | { type: "paragraph"; text: string }
+  /** Inline references in migrated documents; escaped text, no raw HTML. */
+  | { type: "linked-paragraph"; parts: (string | { text: string; href: string })[] }
   /** A paragraph of the form `<label> <address>`, where the address is a mailto link. */
   | { type: "email"; label: string; address: string }
   /** An unordered list. Each item is one plain sentence or clause. */

@@ -5,6 +5,8 @@ a static site at **https://legal.tricktic.com** by GitHub Pages.
 
 | Document | URL |
 | --- | --- |
+| TrickTic ADE privacy policy | https://legal.tricktic.com/tricktic-ade/privacy |
+| TrickTic ADE terms of service | https://legal.tricktic.com/tricktic-ade/terms |
 | TrickTic Timer privacy policy | https://legal.tricktic.com/tricktic-timer/privacy |
 | TrickTic Dictate privacy policy | https://legal.tricktic.com/tricktic-dictate/privacy |
 | TrickTic Dictate terms of use | https://legal.tricktic.com/tricktic-dictate/terms |
@@ -12,7 +14,11 @@ a static site at **https://legal.tricktic.com** by GitHub Pages.
 | TikTok integration privacy policy | https://legal.tricktic.com/tiktok-privacy |
 | TikTok integration terms of service | https://legal.tricktic.com/tiktok-terms |
 
-These used to live at `https://tricktic.com/automation/legal/...`. Each old
+ADE publication and the existing ADE privacy-address migration are tracked in
+[ADE-MIGRATION.md](ADE-MIGRATION.md); the prepared pages are not live until the
+reviewed PR is merged and GitHub Pages has published it.
+
+The original Timer, Dictate and TikTok documents used to live at `https://tricktic.com/automation/legal/...`. Each old
 URL redirects to its new one with a single 301; see [REDIRECTS.md](REDIRECTS.md).
 
 The pages are plain HTML with an inline stylesheet: no scripts, fonts, images,
