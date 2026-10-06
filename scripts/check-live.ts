@@ -59,6 +59,7 @@ for (const page of documentPages) {
   );
 
   const old = legacyUrl(page.path);
+  if (!old) continue;
   const moved = await get(old);
   const location = moved.headers.get("location");
   check(

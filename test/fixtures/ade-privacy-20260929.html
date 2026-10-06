@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TrickTic ADE — Privacy policy</title>
+<style>body{font:18px/1.6 system-ui,sans-serif;max-width:48rem;margin:2rem auto;padding:0 1rem;color:#17202a}a{color:#174ea6}h1,h2{line-height:1.2}</style>
+<main>
+<h1>TrickTic ADE privacy policy</h1>
+<p>Effective 2026-09-29. Published and operated by TrickTic.
+For privacy questions, contact <a href="mailto:contact@tricktic.com">contact@tricktic.com</a>.</p>
+<p>This policy covers the invitation-only hosted TrickTic ADE service and its
+Android app, com.tricktic.ade. The service connects your phone or browser to
+coding agents on computers you connect.</p>
+<h2>Information we process and why</h2>
+<ul>
+<li>Google sign-in identity, email address, account identifiers and invitation
+records let us identify your account and control access.</li>
+<li>Phone, browser and computer registrations and credentials let us connect,
+authenticate and revoke your devices.</li>
+<li>Session titles, messages, prompts, agent replies, terminal output, project
+paths, computer names and usage records support remote work and session history.</li>
+<li>Images or files you upload, including filenames and any embedded metadata,
+are delivered to the connected computer or agent. Do not assume uploads have
+their metadata removed.</li>
+<li>Hosted skills and their revisions, workspace layouts, preferences and
+notification records support the features you choose to use.</li>
+<li>Network addresses and operational records support service operation,
+troubleshooting and access protection. The server journal is bounded by 30 days and a 1 GiB size limit. Database logs rotate by size, keeping up to five 10 MiB files. The origin web proxy does not keep an access log; it records critical errors. These limits do not set a deletion deadline for separate provider logs or copies already included in backups.</li>
+</ul>
+<h2>Notifications and Google Firebase</h2>
+<p>The Android app uses Firebase Cloud Messaging and Firebase Installations in
+the public project ade-remote-sessions. Google processes an installation
+identifier and notification registration token. The app registers the token
+with our server to route alerts to your phone. The server removes its push-token
+registration on logout, device revocation or account deletion, and replaces it
+when refreshed.</p>
+<p>Push content sent through Google uses a generic alert title and category,
+opaque session and computer identifiers, a sequence number and a hashed
+repository routing key. It does not include session titles, prompts, output,
+code, paths or credentials. You can turn off system notifications in Android;
+session controls remain available.</p>
+<p>Removing your account's push registration from our server does not itself
+delete the Firebase installation identifier held by Google. Google's handling
+of that identifier is described in its
+<a href="https://firebase.google.com/support/privacy">Firebase privacy information</a>.</p>
+<h2>Service providers and your connected agents</h2>
+<p>The hosted service uses OVH infrastructure in France, Cloudflare for the public connection and encrypted backup storage in R2, Google for sign-in and Firebase notifications, and OpenAI for enabled voice assistant conversations. These providers process the information needed for their respective services and may process information outside your country. Work you send through the hosted service is available to its operator; do not use it for information you cannot permit the service to process.</p>
+<p>When you direct work to an agent on your computer, that agent may send your
+content to its provider under your account with that provider. Hosted account
+deletion does not delete those provider accounts or their independent records.</p>
+<p>Public app and browser connections to the hosted service use HTTPS and
+encrypted WebSockets. Account authentication and device credentials control
+access, and off-site database backups are encrypted. The hosted service
+processes readable session content. It is not an
+end-to-end encrypted service that hides content from the operator.</p>
+<h2>Microphone and voice</h2>
+<p>Voice is optional and requires microphone permission and an enabled, configured voice service. When you start a voice conversation in Android, microphone audio travels through the hosted service to OpenAI for recognition and responses. In the browser, audio may connect directly to OpenAI through WebRTC or use the hosted relay. Captions, your requests, relevant account/session context and results of actions you request may be processed by the hosted service and OpenAI so the assistant can respond and act.</p>
+<p>The hosted voice service does not save raw audio recordings. Saved caption retention is off by default; if enabled in voice settings, finalized captions are kept for the selected period, up to 30 days, and removed by a periodic sweep. Ended conversations can remain in memory for up to ten minutes for event catch-up. Usage and operation records have separate retention: voice usage receipts become eligible for removal 90 days after the conversation ends, while daily spend records become eligible 90 days after their recorded day. A periodic sweep removes eligible records. These are hosted-service limits, not promises about OpenAI&#x27;s storage. Its processing is governed by the provider&#x27;s terms and the configured provider account. Disabling or deleting voice history does not undo actions already completed or erase content sent into a coding session.</p>
+<p>See <a href="https://developers.openai.com/api/docs/guides/your-data">OpenAI's API data controls</a>
+for its processing and retention rules. We do not promise that deleting hosted
+voice history deletes copies already processed by that provider.</p>
+<h2>Retention and account deletion</h2>
+<p>Active session events are retained while the session is active. Under the normal retention settings, completed-session events become eligible for deletion after 90 days and are removed by a daily sweep; session summaries remain. Staged uploads expire after 24 hours. Hosted skills keep the ten newest revisions plus revisions still needed by active delivery or automation. Account deletion removes the live hosted data described below.</p>
+<p>Open <a href="https://ade.tricktic.com/account/delete">Delete your hosted account</a> in a
+browser, sign in with your account's Google identity, read the effects and type
+DELETE MY ACCOUNT to confirm. You do not need to reinstall the Android app.
+The app also offers Settings → Hosted account → Delete account.</p>
+<p>When the request completes, the service revokes browser, phone and computer
+access and removes hosted records of computers, sessions, server-stored history,
+uploads, notifications, usage, workspaces, settings and hosted skills. A minimal
+deleted-account record, revoked credential records and deletion/export receipts
+remain. These records document completed requests and help prevent revoked access or conflicting account identities from being reused. There is currently no general automatic expiry for these retained account and request records.</p>
+<p>Deletion does not rewrite existing backup bundles. The normal rotation retains all backups for 48 hours, daily copies for 14 days and weekly copies for eight weeks. It also keeps at least the newest three verified copies regardless of age. Copies can remain longer if new backups or pruning fail, and separately made recovery copies have a separate lifetime. Eight weeks is therefore not a guaranteed deadline for removal from every backup.</p>
+<p>Deletion does not remove projects, files, terminal sessions or agent accounts
+on your computers. It does not uninstall the daemon or delete your Google account.
+The account page offers a data summary export; it is not a full archive of all
+session content.</p>
+<h2>Your requests and support</h2>
+<p>For questions about your information or a request for access, correction or deletion, email the privacy contact above. We may need to verify that the request concerns your account. Your rights may depend on the laws that apply to you. Do not send passwords, access tokens or sign-in codes.</p>
+<p>If sign-in or deletion fails, contact
+<a href="mailto:contact@tricktic.com">contact@tricktic.com</a> for help verifying
+ownership and handling your request. Do not send passwords or access tokens.</p>
+<nav><a href="https://ade.tricktic.com/support">Support</a> ·
+<a href="https://ade.tricktic.com/account-deletion-info">Deletion details</a></nav>
+</main>
+</html>

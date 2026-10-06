@@ -78,7 +78,7 @@ describe("site structure", () => {
       assert.equal(metaContent(html, "robots"), page.indexable ? "index, follow" : "noindex, nofollow");
     });
 
-    test(`${file} links nowhere but mail addresses`, () => {
+    test(`${file} contains only approved reference links`, () => {
       const html = readBuilt(file);
       // Attribute URLs: the canonical (link rel + og:url), the empty icon and
       // mailto links. Plain-text URLs inside the legal text are not links.
@@ -87,7 +87,13 @@ describe("site structure", () => {
       );
       for (const url of attributeUrls) {
         const allowed =
-          url === canonicalUrl(page.path) || url === "data:," || url.startsWith("mailto:");
+          url === canonicalUrl(page.path) || url === "data:," || url.startsWith("mailto:") ||
+          (page.path.startsWith("/tricktic-ade/") && [
+            "https://firebase.google.com/support/privacy",
+            "https://developers.openai.com/api/docs/guides/your-data",
+            "https://ade.tricktic.com/account/delete",
+            "https://legal.tricktic.com/tricktic-ade/privacy",
+          ].includes(url));
         assert.ok(allowed, `unexpected URL in an attribute: ${url}`);
       }
     });
@@ -99,13 +105,15 @@ describe("site structure", () => {
     assert.equal(metaContent(html, "robots"), "index, follow");
     const listed = documentPages.filter((page) => page.listedUnder !== null).map((page) => page.path);
     assert.deepEqual(
-      links(html).map((link) => link.href),
-      listed
+      links(html).map((link) => link.href).sort(),
+      [...listed].sort()
     );
     assert.deepEqual(listed, [
       "/tricktic-timer/privacy",
       "/tricktic-dictate/privacy",
+      "/tricktic-ade/privacy",
       "/tricktic-dictate/terms",
+      "/tricktic-ade/terms",
       "/tricktic-dictate/security",
     ]);
   });

@@ -11,6 +11,16 @@ All notable changes to what legal.tricktic.com serves. The format follows
 - Live on legal.tricktic.com since 2026-10-05. The repository moved to the
   TrickTicAI organization, which has verified tricktic.com for GitHub Pages.
 
+## [1.1.0] - 2026-10-06
+
+### Added
+
+- ADE privacy policy migrated verbatim from the approved hosted policy, retaining
+  its September 29 effective date and operational reference links.
+- ADE pilot terms of service; owner review required before publication.
+- Plain escaped inline references and explicit ADE legacy-URL handling; existing
+  Timer, Dictate and TikTok page output is unchanged.
+
 ## [1.0.0] - 2026-10-05
 
 ### Added
