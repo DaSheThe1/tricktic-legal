@@ -11,6 +11,17 @@ All notable changes to what legal.tricktic.com serves. The format follows
 - Live on legal.tricktic.com since 2026-10-05. The repository moved to the
   TrickTicAI organization, which has verified tricktic.com for GitHub Pages.
 
+## [1.3.2] - 2026-10-08
+
+### Changed
+
+- Studio privacy policy follows Daniel's TTS-50 account-avatar decision: store
+  the accepted sign-in photo URL and preset choice, disclose direct photo loads
+  without a referrer and the image service's receipt of the network address,
+  and cover avatar export/deletion. No uploads or provider tokens are accepted.
+  Providers remain described by role. This supersedes the previous no-picture
+  clause; publication is coordinated with the separately reviewed Studio PR.
+
 ## [1.3.1] - 2026-10-08
 
 ### Changed
