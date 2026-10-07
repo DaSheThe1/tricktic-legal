@@ -19,10 +19,15 @@ test("Studio privacy keeps its provider, retention and deletion clauses", () => 
     "Encrypted backups are made daily and kept for at most 7 days.",
     "Files are then removed from storage after at least 125 seconds",
     "Studio is intended for people aged 18 or older",
+    "Emails we send you: the invitation and a reminder before your pilot ends.",
+    "An email delivery provider sends invitation and reminder emails.",
+    "This overview does not include your videos, clips, transcripts, scripts, project names or Copilot conversations.",
+    "Records of invitation and reminder emails are kept for 30 days.",
+    "An invitation that is never used is deleted 30 days after it expires or is revoked.",
   ]) assert.ok(visible.includes(clause), clause);
   assert.ok(links(html).some((link) => link.href === "mailto:contact@tricktic.com"));
   // Providers are described by role so infrastructure can change (owner, 2026-10-07).
-  for (const name of ["HOSTKEY", "Cloudflare", "OpenAI", "France", "R2"]) {
+  for (const name of ["HOSTKEY", "Cloudflare", "OpenAI", "France", "R2", "SMTP2GO"]) {
     assert.ok(!visible.includes(name), `names a provider or location: ${name}`);
   }
 });
@@ -33,7 +38,8 @@ test("Studio terms keep the free pilot, content rights and liability boundaries"
   for (const clause of [
     "operated by TrickTic (Daniel Shedrinsky)",
     "at least 18 years old",
-    "free for 30 days from each customer's activation",
+    "free for at least 30 days from each customer's activation, which is the first sign-in",
+    "we email you a reminder before it ends",
     "does not automatically turn into a paid subscription",
     "require your agreement before a charge",
     "at least 30 days' notice before deleting your account",
