@@ -16,8 +16,9 @@ All notable changes to what legal.tricktic.com serves. The format follows
 ### Added
 
 - TrickTic Studio privacy policy and pilot terms of service at
-  `/tricktic-studio/privacy` and `/tricktic-studio/terms`; owner review
-  required before publication.
+  `/tricktic-studio/privacy` and `/tricktic-studio/terms`. Providers are
+  described by role, not name or location. Wording approved by Daniel on
+  2026-10-07.
 
 ## [1.1.0] - 2026-10-06
 

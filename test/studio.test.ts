@@ -16,7 +16,7 @@ test("Studio privacy keeps its provider, retention and deletion clauses", () => 
     "A current list is available from the privacy contact above.",
     "We do not sell your information or use it for advertising.",
     "Studio is not end-to-end encrypted",
-    "Encrypted backups are made daily and kept for at most 30 days.",
+    "Encrypted backups are made daily and kept for at most 7 days.",
     "Files are then removed from storage after at least 125 seconds",
     "Studio is intended for people aged 18 or older",
   ]) assert.ok(visible.includes(clause), clause);

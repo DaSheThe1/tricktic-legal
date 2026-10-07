@@ -4,7 +4,7 @@ import type { AppDocument } from "./types";
 // TrickTic Studio repository (DaSheThe1/tricktic-studio, docs/ops and
 // deploy/policy.json). Providers are described by role, not name or location,
 // at the owner's request (2026-10-07), so infrastructure can change under them.
-// Owner review before publication.
+// Wording approved by Daniel on 2026-10-07.
 export const trickticStudioPrivacyPolicy: AppDocument = {
   slug: "tricktic-studio",
   appName: "TrickTic Studio",
@@ -51,14 +51,14 @@ export const trickticStudioPrivacyPolicy: AppDocument = {
         "Upload sessions expire after 24 hours, and unfinished uploads are removed after 48 hours.",
         "The project activity feed keeps 30 days. Feedback is deleted after 90 days and is not included in backups. Operator audit records are kept for 90 days.",
         "Expired sign-in sessions are removed a day after they expire.",
-        "Encrypted backups are made daily and kept for at most 30 days.",
+        "Encrypted backups are made daily and kept for at most 7 days.",
       ] },
       { type: "paragraph", text: "If the pilot ends and your hosted access does not continue, you can still export, download and delete your data. Your content is not silently erased; the terms of service explain the notice we give before closing an account." },
     ] },
     { heading: "Exporting and deleting your data", blocks: [
       { type: "paragraph", text: "Settings → Data & deletion lets you download your account's project, script, library, render and AI metadata as a JSON file. Original media and finished videos download separately from the app." },
       { type: "paragraph", text: "You can delete a single project, or your whole account in Settings → Data & deletion by typing DELETE ACCOUNT. Deletion ends every session, cancels uploads and active renders and ends access to projects, scripts, discussion and private assets at once. Files are then removed from storage after at least 125 seconds, with retries; links already issued may work for up to 120 seconds. Copies you already downloaded stay with you." },
-      { type: "paragraph", text: "Deletion does not rewrite existing backups. They expire within 30 days, and if a backup is restored before then, deletions are applied again first. A deleted-account identifier, minimal deletion records and minimal usage counters remain, so that a restore cannot bring back deleted data and usage caps cannot be reset. They contain no media, transcripts, scripts or discussion." },
+      { type: "paragraph", text: "Deletion does not rewrite existing backups. They expire within 7 days, and if a backup is restored before then, deletions are applied again first. A deleted-account identifier, minimal deletion records and minimal usage counters remain, so that a restore cannot bring back deleted data and usage caps cannot be reset. They contain no media, transcripts, scripts or discussion." },
     ] },
     { heading: "Security", blocks: [
       { type: "paragraph", text: "Connections to Studio use HTTPS. Uploaded files are scanned for malware and inspected in isolation before use. Backups are encrypted, and the key that decrypts them is not held by the backup service. No service is perfectly secure; tell us promptly at the address above if you believe your account has been compromised." },
@@ -73,7 +73,8 @@ export const trickticStudioPrivacyPolicy: AppDocument = {
   ],
 };
 
-// New pilot terms, adapted from the approved ADE pilot terms; owner review before publication.
+// New pilot terms, adapted from the approved ADE pilot terms; the ADE owner
+// decisions apply (Daniel, 2026-10-07).
 export const trickticStudioTermsOfUse: AppDocument = {
   slug: "tricktic-studio",
   appName: "TrickTic Studio",
