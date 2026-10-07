@@ -5,6 +5,7 @@ import {
 } from "./tricktic-dictate.ts";
 import { trickticTimerPrivacyPolicy } from "./tricktic-timer.ts";
 import { trickticAdePrivacyPolicy, trickticAdeTermsOfUse } from "./tricktic-ade.ts";
+import { trickticStudioPrivacyPolicy, trickticStudioTermsOfUse } from "./tricktic-studio.ts";
 import type { AppDocument, AppPrivacyPolicy } from "./types";
 
 export type {
@@ -31,12 +32,17 @@ export const appPrivacyPolicies: readonly AppPrivacyPolicy[] = [
   trickticTimerPrivacyPolicy,
   trickticDictatePrivacyPolicy,
   trickticAdePrivacyPolicy,
+  trickticStudioPrivacyPolicy,
 ];
 
 // Terms of use at /<slug>/terms and security policies at /<slug>/security.
 // Same rules as the privacy registry: public, indexable, and the URL is
 // permanent once an app links to it.
-export const appTermsOfUse: readonly AppDocument[] = [trickticDictateTermsOfUse, trickticAdeTermsOfUse];
+export const appTermsOfUse: readonly AppDocument[] = [
+  trickticDictateTermsOfUse,
+  trickticAdeTermsOfUse,
+  trickticStudioTermsOfUse,
+];
 export const appSecurityPolicies: readonly AppDocument[] = [
   trickticDictateSecurityPolicy,
 ];

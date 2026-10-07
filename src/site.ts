@@ -69,6 +69,7 @@ export function canonicalUrl(path: string): string {
 export function legacyUrl(path: string): string | null {
   if (path === "/tricktic-ade/privacy") return "https://ade.tricktic.com/privacy";
   if (path.startsWith("/tricktic-ade/")) return null; // New terms have no previously published URL.
+  if (path.startsWith("/tricktic-studio/")) return null; // New documents; never published elsewhere.
   return `${LEGACY_PREFIX}${path}`;
 }
 
