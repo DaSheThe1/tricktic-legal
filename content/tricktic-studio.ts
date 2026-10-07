@@ -4,15 +4,16 @@ import type { AppDocument } from "./types";
 // TrickTic Studio repository (DaSheThe1/tricktic-studio, docs/ops and
 // deploy/policy.json). Providers are described by role, not name or location,
 // at the owner's request (2026-10-07), so infrastructure can change under them.
-// Wording approved by Daniel on 2026-10-07.
+// Wording approved by Daniel on 2026-10-07. Pilot email, per-person pilot dates
+// and the operator's overview added at Daniel's request on 2026-10-08 (Studio TTS-47).
 export const trickticStudioPrivacyPolicy: AppDocument = {
   slug: "tricktic-studio",
   appName: "TrickTic Studio",
   title: "TrickTic Studio Privacy Policy",
-  lastUpdated: "Effective: October 7, 2026",
+  lastUpdated: "Effective: October 8, 2026",
   description: "Privacy policy for the invitation-only hosted TrickTic Studio service.",
   intro: [
-    { type: "linked-paragraph", parts: ["Effective 2026-10-07. Published and operated by TrickTic (Daniel Shedrinsky). For privacy questions, contact ", { text: "contact@tricktic.com", href: "mailto:contact@tricktic.com" }, "."] },
+    { type: "linked-paragraph", parts: ["Effective 2026-10-08. Published and operated by TrickTic (Daniel Shedrinsky). For privacy questions, contact ", { text: "contact@tricktic.com", href: "mailto:contact@tricktic.com" }, "."] },
     { type: "paragraph", text: "This policy covers the invitation-only hosted TrickTic Studio service at studio.tricktic.com. Studio turns pre-cut spoken clips into finished downloadable videos." },
   ],
   sections: [
@@ -24,6 +25,8 @@ export const trickticStudioPrivacyPolicy: AppDocument = {
         "Sign-in sessions: a random session identifier, of which the server stores only a one-way hash, a coarse browser and platform label and the time it was last used.",
         "Technical information: network addresses, browser and device details, error details and timings, used to deliver the service, limit abuse and diagnose and fix problems. We keep it only as long as needed for those purposes and do not intentionally include your media, transcripts, scripts or discussion in logs or error reports.",
         "Feedback you send through Help & feedback: its category, your text and, if you choose, the app version, browser and a project identifier.",
+        "Your invitation and pilot: the email address you were invited at, when you were invited and the free days offered, the start and end of your free pilot, any extension, and the support time the operator records for your account.",
+        "Emails we send you: the invitation and a reminder before your pilot ends. For each message we keep the address, its dates and whether it was delivered. The messages contain only your own address, dates and public Studio links.",
       ] },
     ] },
     { heading: "Cookies and browser storage", blocks: [
@@ -38,11 +41,13 @@ export const trickticStudioPrivacyPolicy: AppDocument = {
         "Transcription of your audio and video may run on hardware we operate or with a speech-recognition provider.",
         "AI model providers power Copilot and other AI features. A request sends the project information needed for it, such as the script, transcript or captions, recent discussion and only the library descriptions you choose to share. It does not send your account credentials. We configure these providers not to use your content to train their models.",
         "Error-monitoring and operational services help us detect and fix problems, using the technical information described above.",
+        "An email delivery provider sends invitation and reminder emails. It receives your email address and the message.",
       ] },
       { type: "paragraph", text: "Providers may change as the service develops, and they may process information outside your country. A current list is available from the privacy contact above. We do not sell your information or use it for advertising. We do not promise that deleting your Studio data deletes copies already processed by a provider under its own retention rules." },
     ] },
     { heading: "Who can see your content", blocks: [
       { type: "paragraph", text: "Your projects, scripts, library and renders are private to your account. Another account cannot see them, even if it uploads identical files, and does not gain your rights to an asset that way." },
+      { type: "paragraph", text: "To run the pilot, the operator sees for each pilot account: your name and email from Google, your invitation, pilot start and end dates, when you last used Studio, counts of your projects, renders, failures (as error codes), waiting times and AI use, the feedback you send and the support time recorded. This overview does not include your videos, clips, transcripts, scripts, project names or Copilot conversations." },
       { type: "paragraph", text: "Studio is not end-to-end encrypted: the operator runs its servers and can technically access content stored there. Operator tools are restricted and their use is recorded. We access your content only to provide the service, to handle a support request you make, or when needed for security or legal reasons." },
     ] },
     { heading: "Retention", blocks: [
@@ -50,10 +55,11 @@ export const trickticStudioPrivacyPolicy: AppDocument = {
         "Your content is kept until you delete it or your account.",
         "Upload sessions expire after 24 hours, and unfinished uploads are removed after 48 hours.",
         "The project activity feed keeps 30 days. Feedback is deleted after 90 days and is not included in backups. Operator audit records are kept for 90 days.",
+        "Records of invitation and reminder emails are kept for 30 days. An invitation that is never used is deleted 30 days after it expires or is revoked. Your invitation, pilot dates and recorded support time are kept until your account is deleted.",
         "Expired sign-in sessions are removed a day after they expire.",
         "Encrypted backups are made daily and kept for at most 7 days.",
       ] },
-      { type: "paragraph", text: "If the pilot ends and your hosted access does not continue, you can still export, download and delete your data. Your content is not silently erased; the terms of service explain the notice we give before closing an account." },
+      { type: "paragraph", text: "When your free pilot ends, Studio stops taking new uploads, edits, renders and AI requests for your account, and you can still sign in to watch, download and export your data or delete your account. Your content is not silently erased; the terms of service explain the notice we give before closing an account." },
     ] },
     { heading: "Exporting and deleting your data", blocks: [
       { type: "paragraph", text: "Settings → Data & deletion lets you download your account's project, script, library, render and AI metadata as a JSON file. Original media and finished videos download separately from the app." },
@@ -74,12 +80,13 @@ export const trickticStudioPrivacyPolicy: AppDocument = {
 };
 
 // New pilot terms, adapted from the approved ADE pilot terms; the ADE owner
-// decisions apply (Daniel, 2026-10-07).
+// decisions apply (Daniel, 2026-10-07). Per-person free period, reminder and
+// extension added at Daniel's request on 2026-10-08 (Studio TTS-47).
 export const trickticStudioTermsOfUse: AppDocument = {
   slug: "tricktic-studio",
   appName: "TrickTic Studio",
   title: "TrickTic Studio Terms of Service",
-  lastUpdated: "Last updated: October 7, 2026",
+  lastUpdated: "Last updated: October 8, 2026",
   description: "Terms for the invitation-only TrickTic Studio hosted pilot.",
   intro: [{ type: "paragraph", text: "These terms apply to the invitation-only TrickTic Studio hosted service at studio.tricktic.com, operated by TrickTic (Daniel Shedrinsky). Please read them before accepting an invitation or using the service. By using the service, you agree to these terms. If you do not agree, do not use the service." }],
   sections: [
@@ -90,7 +97,7 @@ export const trickticStudioTermsOfUse: AppDocument = {
       { type: "paragraph", text: "You must be at least 18 years old and have the legal capacity and any permission needed to use the service. If you act for an organization, you must have authority to do so. Sign in with the Google identity your invitation was sent to, keep your access private, and tell us promptly if you believe your account has been compromised." },
     ] },
     { heading: "3. Free pilot and future pricing", blocks: [
-      { type: "paragraph", text: "The initial pilot is limited to five invited customers and is free for 30 days from each customer's activation. No payment method is required, and the pilot does not automatically turn into a paid subscription or generate an automatic charge." },
+      { type: "paragraph", text: "The initial pilot is limited to five invited customers and is free for at least 30 days from each customer's activation, which is the first sign-in. Your invitation states the free period, the app shows the days left, and we email you a reminder before it ends. We may extend it. No payment method is required, and the pilot does not automatically turn into a paid subscription or generate an automatic charge." },
       { type: "paragraph", text: "At the end of the pilot we will tell you whether hosted access will continue, change or end. Any paid offer will state its price and terms separately and require your agreement before a charge." },
       { type: "paragraph", text: "If your hosted access does not continue after the pilot, you can no longer create or render, but you can still export, download and delete your data. We will give you at least 30 days' notice before deleting your account. After the notice period we delete it in the same way as a deletion request, as described in the privacy policy." },
     ] },

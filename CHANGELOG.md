@@ -11,6 +11,17 @@ All notable changes to what legal.tricktic.com serves. The format follows
 - Live on legal.tricktic.com since 2026-10-05. The repository moved to the
   TrickTicAI organization, which has verified tricktic.com for GitHub Pages.
 
+## [1.3.1] - 2026-10-08
+
+### Changed
+
+- TrickTic Studio privacy policy and terms, at Daniel's request for the
+  self-running pilot (Studio TTS-47): invitation and reminder emails and their
+  delivery provider (by role), the 30-day email record and unused-invitation
+  retention, each person's pilot dates and support time, what the operator's
+  pilot overview shows and does not, what stops when a free pilot ends, and a
+  free period of at least 30 days from first sign-in with a reminder.
+
 ## [1.3.0] - 2026-10-07
 
 ### Added
