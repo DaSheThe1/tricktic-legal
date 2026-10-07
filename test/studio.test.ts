@@ -9,7 +9,12 @@ test("Studio privacy keeps its provider, retention and deletion clauses", () => 
   for (const clause of [
     "Published and operated by TrickTic (Daniel Shedrinsky)",
     "invitation-only hosted TrickTic Studio service at studio.tricktic.com",
-    "We do not keep your Google profile picture or Google access tokens.",
+    "We also store the latest accepted profile photo URL and your optional preset icon choice.",
+    "your browser loads it directly from the sign-in provider's image service without sending a referrer",
+    "that service receives your network address.",
+    "Choosing a preset uses bundled artwork instead.",
+    "Your avatar fields are included in your account export and cleared when you delete your account.",
+    "We do not accept photo uploads or keep provider access tokens.",
     "It does not use advertising or cross-site tracking cookies.",
     "Providers may change as the service develops",
     "We configure these providers not to use your content to train their models.",
@@ -25,6 +30,8 @@ test("Studio privacy keeps its provider, retention and deletion clauses", () => 
     "Records of invitation and reminder emails are kept for 30 days.",
     "An invitation that is never used is deleted 30 days after it expires or is revoked.",
   ]) assert.ok(visible.includes(clause), clause);
+  assert.ok(!visible.includes("We do not keep your Google profile picture"));
+  assert.ok(visible.includes("Effective 2026-10-08."));
   assert.ok(links(html).some((link) => link.href === "mailto:contact@tricktic.com"));
   // Providers are described by role so infrastructure can change (owner, 2026-10-07).
   for (const name of ["HOSTKEY", "Cloudflare", "OpenAI", "France", "R2", "SMTP2GO"]) {
