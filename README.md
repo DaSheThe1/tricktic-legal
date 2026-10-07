@@ -7,6 +7,8 @@ a static site at **https://legal.tricktic.com** by GitHub Pages.
 | --- | --- |
 | TrickTic ADE privacy policy | https://legal.tricktic.com/tricktic-ade/privacy |
 | TrickTic ADE terms of service | https://legal.tricktic.com/tricktic-ade/terms |
+| TrickTic Studio privacy policy | https://legal.tricktic.com/tricktic-studio/privacy |
+| TrickTic Studio terms of service | https://legal.tricktic.com/tricktic-studio/terms |
 | TrickTic Timer privacy policy | https://legal.tricktic.com/tricktic-timer/privacy |
 | TrickTic Dictate privacy policy | https://legal.tricktic.com/tricktic-dictate/privacy |
 | TrickTic Dictate terms of use | https://legal.tricktic.com/tricktic-dictate/terms |

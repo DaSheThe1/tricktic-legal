@@ -11,6 +11,14 @@ All notable changes to what legal.tricktic.com serves. The format follows
 - Live on legal.tricktic.com since 2026-10-05. The repository moved to the
   TrickTicAI organization, which has verified tricktic.com for GitHub Pages.
 
+## [1.2.0] - 2026-10-07
+
+### Added
+
+- TrickTic Studio privacy policy and pilot terms of service at
+  `/tricktic-studio/privacy` and `/tricktic-studio/terms`; owner review
+  required before publication.
+
 ## [1.1.0] - 2026-10-06
 
 ### Added
