@@ -96,6 +96,9 @@ describe("site structure", () => {
           ].includes(url)) ||
           (page.path.startsWith("/tricktic-studio/") && [
             "https://legal.tricktic.com/tricktic-studio/privacy",
+          ].includes(url)) ||
+          (page.path.startsWith("/tricktic-crm/") && [
+            "https://legal.tricktic.com/tricktic-crm/privacy",
           ].includes(url));
         assert.ok(allowed, `unexpected URL in an attribute: ${url}`);
       }
@@ -116,9 +119,11 @@ describe("site structure", () => {
       "/tricktic-dictate/privacy",
       "/tricktic-ade/privacy",
       "/tricktic-studio/privacy",
+      "/tricktic-crm/privacy",
       "/tricktic-dictate/terms",
       "/tricktic-ade/terms",
       "/tricktic-studio/terms",
+      "/tricktic-crm/terms",
       "/tricktic-dictate/security",
     ]);
   });
