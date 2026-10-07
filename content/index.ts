@@ -6,6 +6,7 @@ import {
 import { trickticTimerPrivacyPolicy } from "./tricktic-timer.ts";
 import { trickticAdePrivacyPolicy, trickticAdeTermsOfUse } from "./tricktic-ade.ts";
 import { trickticStudioPrivacyPolicy, trickticStudioTermsOfUse } from "./tricktic-studio.ts";
+import { trickticCrmPrivacyPolicy, trickticCrmTermsOfUse } from "./tricktic-crm.ts";
 import type { AppDocument, AppPrivacyPolicy } from "./types";
 
 export type {
@@ -33,6 +34,7 @@ export const appPrivacyPolicies: readonly AppPrivacyPolicy[] = [
   trickticDictatePrivacyPolicy,
   trickticAdePrivacyPolicy,
   trickticStudioPrivacyPolicy,
+  trickticCrmPrivacyPolicy,
 ];
 
 // Terms of use at /<slug>/terms and security policies at /<slug>/security.
@@ -42,6 +44,7 @@ export const appTermsOfUse: readonly AppDocument[] = [
   trickticDictateTermsOfUse,
   trickticAdeTermsOfUse,
   trickticStudioTermsOfUse,
+  trickticCrmTermsOfUse,
 ];
 export const appSecurityPolicies: readonly AppDocument[] = [
   trickticDictateSecurityPolicy,

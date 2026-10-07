@@ -11,6 +11,16 @@ All notable changes to what legal.tricktic.com serves. The format follows
 - Live on legal.tricktic.com since 2026-10-05. The repository moved to the
   TrickTicAI organization, which has verified tricktic.com for GitHub Pages.
 
+## [1.3.0] - 2026-10-07
+
+### Added
+
+- TrickTic-CRM privacy policy and pilot terms at `/tricktic-crm/privacy` and
+  `/tricktic-crm/terms`, from the client documents Daniel approved on
+  2026-10-05. Providers other than Google are described by role, and the terms
+  gain the approved Studio age, warranty, liability and governing-law clauses
+  (Daniel, 2026-10-07).
+
 ## [1.2.0] - 2026-10-07
 
 ### Added
