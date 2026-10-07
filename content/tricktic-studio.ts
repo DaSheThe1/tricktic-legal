@@ -2,7 +2,9 @@ import type { AppDocument } from "./types";
 
 // New documents for the invitation-only hosted Studio pilot. Facts trace to the
 // TrickTic Studio repository (DaSheThe1/tricktic-studio, docs/ops and
-// deploy/policy.json); owner review before publication.
+// deploy/policy.json). Providers are described by role, not name or location,
+// at the owner's request (2026-10-07), so infrastructure can change under them.
+// Owner review before publication.
 export const trickticStudioPrivacyPolicy: AppDocument = {
   slug: "tricktic-studio",
   appName: "TrickTic Studio",
@@ -18,26 +20,26 @@ export const trickticStudioPrivacyPolicy: AppDocument = {
       { type: "list", items: [
         "Your Google sign-in identity: the verified email address and the name Google provides, matched against your invitation, let us identify your account and control access. We do not keep your Google profile picture or Google access tokens.",
         "Your content: projects, clips, voice recordings, still images, scripts, topics, hooks, transcripts, captions, Copilot discussion, library assets such as music, fonts and branding, their rights receipts, templates, renders and exports. We store and process it to provide the features you use. Uploaded files are kept as you provide them, including filenames and any embedded metadata.",
-        "AI and usage records: for each Copilot request, the input it was given, the prompt version, the model and the usage it consumed, plus spending counters that enforce usage caps. Job progress and a project activity feed show you what happened.",
-        "Sign-in sessions: a random session identifier, of which the server stores only a one-way hash, a coarse browser and platform label and the time it was last used. We do not store your full browser identification string.",
-        "Network addresses: a one-way hash of your network address is used to limit repeated requests and is removed after one day. The web server keeps no access log. Application logs contain request identifiers, error codes and timings, not your media, transcripts, discussion, links or credentials.",
+        "AI and usage records: for each AI request, the input it was given, the prompt version, the model and the usage it consumed, plus spending counters that enforce usage caps. Job progress and a project activity feed show you what happened.",
+        "Sign-in sessions: a random session identifier, of which the server stores only a one-way hash, a coarse browser and platform label and the time it was last used.",
+        "Technical information: network addresses, browser and device details, error details and timings, used to deliver the service, limit abuse and diagnose and fix problems. We keep it only as long as needed for those purposes and do not intentionally include your media, transcripts, scripts or discussion in logs or error reports.",
         "Feedback you send through Help & feedback: its category, your text and, if you choose, the app version, browser and a project identifier.",
       ] },
     ] },
     { heading: "Cookies and browser storage", blocks: [
-      { type: "paragraph", text: "Studio sets one essential sign-in cookie, valid for 12 hours, and a short-lived cookie during Google sign-in that expires after 5 minutes. Studio uses no analytics, advertising or third-party cookies, and the web app loads no third-party scripts, fonts or trackers." },
-      { type: "paragraph", text: "Studio keeps a few things in your browser, for your account only: device settings, unsaved edits to projects and scripts for up to 14 days, the list of recent exports and the details of paused uploads. It does not keep download or upload links, credentials, file contents or Copilot answers there. Signing out or deleting your account clears it. Browser notifications are off until you allow them; when on, they show project titles." },
+      { type: "paragraph", text: "Studio uses essential cookies to sign you in and keep you signed in. It does not use advertising or cross-site tracking cookies." },
+      { type: "paragraph", text: "Studio keeps a few things in your browser, for your account only: device settings, unsaved edits to projects and scripts for up to 14 days, the list of recent exports and the details of paused uploads. It does not keep download or upload links, credentials, file contents or AI answers there. Signing out or deleting your account clears it. Browser notifications are off until you allow them; when on, they show project titles." },
     ] },
-    { heading: "Service providers and where processing happens", blocks: [
+    { heading: "Service providers", blocks: [
+      { type: "paragraph", text: "We use service providers to run Studio. They process information only as needed to provide their service to us:" },
       { type: "list", items: [
-        "HOSTKEY runs the server that hosts the Studio application and its database, in a data center in France.",
-        "Cloudflare carries the public connection to Studio and stores uploaded media, finished videos and encrypted backups in private Cloudflare R2 storage with a European location preference. Cloudflare terminates the encrypted public connection, so it processes the traffic it carries.",
-        "Transcription and rendering run on a computer operated by TrickTic. Your audio and video are transcribed there; they are not sent to an external speech-recognition provider.",
+        "Hosting, network and storage providers run Studio's servers and database, carry the connection to your browser and store uploaded media, finished videos and encrypted backups.",
         "Google provides sign-in.",
-        "OpenAI provides the text model behind Copilot, through a ChatGPT subscription held by TrickTic. A Copilot request sends the project's script and its duration, transcript or captions, up to the last ten discussion turns and only the library descriptions you choose: labels, keywords and licence names. It does not send media files, storage links, your account identity or credentials.",
+        "Transcription of your audio and video may run on hardware we operate or with a speech-recognition provider.",
+        "AI model providers power Copilot and other AI features. A request sends the project information needed for it, such as the script, transcript or captions, recent discussion and only the library descriptions you choose to share. It does not send your account credentials. We configure these providers not to use your content to train their models.",
+        "Error-monitoring and operational services help us detect and fix problems, using the technical information described above.",
       ] },
-      { type: "linked-paragraph", parts: ["OpenAI processes Copilot requests under its terms and the data controls of TrickTic's account. Model training is turned off for that account. Its handling is described in ", { text: "How your data is used to improve model performance", href: "https://help.openai.com/en/articles/5722486-how-your-data-is-used-to-improve-model-performance" }, ". We do not promise that deleting your Studio data deletes copies already processed by OpenAI."] },
-      { type: "paragraph", text: "These providers may process information outside your country. Studio uses no analytics, advertising, error-tracking or payment providers, and we do not sell your information or use it for advertising." },
+      { type: "paragraph", text: "Providers may change as the service develops, and they may process information outside your country. A current list is available from the privacy contact above. We do not sell your information or use it for advertising. We do not promise that deleting your Studio data deletes copies already processed by a provider under its own retention rules." },
     ] },
     { heading: "Who can see your content", blocks: [
       { type: "paragraph", text: "Your projects, scripts, library and renders are private to your account. Another account cannot see them, even if it uploads identical files, and does not gain your rights to an asset that way." },
@@ -81,7 +83,7 @@ export const trickticStudioTermsOfUse: AppDocument = {
   intro: [{ type: "paragraph", text: "These terms apply to the invitation-only TrickTic Studio hosted service at studio.tricktic.com, operated by TrickTic (Daniel Shedrinsky). Please read them before accepting an invitation or using the service. By using the service, you agree to these terms. If you do not agree, do not use the service." }],
   sections: [
     { heading: "1. The service", blocks: [
-      { type: "paragraph", text: "TrickTic Studio turns pre-cut spoken clips into finished downloadable videos, with transcription, captions, scripts, a private asset library and an AI assistant, Copilot. Supported formats, upload and storage limits, render queues and Copilot usage caps are shown in the app and may change during the pilot. Studio is not a backup or archive service; keep your own copies of your source files and finished videos." },
+      { type: "paragraph", text: "TrickTic Studio turns pre-cut spoken clips into finished downloadable videos, with transcription, captions, scripts, a private asset library and AI features such as the Copilot assistant. Supported formats, upload and storage limits, render queues and Copilot usage caps are shown in the app and may change during the pilot. Studio is not a backup or archive service; keep your own copies of your source files and finished videos." },
     ] },
     { heading: "2. Your account", blocks: [
       { type: "paragraph", text: "You must be at least 18 years old and have the legal capacity and any permission needed to use the service. If you act for an organization, you must have authority to do so. Sign in with the Google identity your invitation was sent to, keep your access private, and tell us promptly if you believe your account has been compromised." },
@@ -99,8 +101,8 @@ export const trickticStudioTermsOfUse: AppDocument = {
       { type: "paragraph", text: "You must own or have permission to use everything you upload or include in a video, including footage, voices and likenesses of the people in it, music, fonts, logos and other branding. A rights receipt you attach to a library asset is your own statement of that permission; TrickTic does not verify it and does not grant any licence to third-party material." },
       { type: "paragraph", text: "You are responsible for the videos you make and for where you publish them, including compliance with the rules of the platforms you post to." },
     ] },
-    { heading: "6. Copilot and generated output", blocks: [
-      { type: "paragraph", text: "Copilot suggestions, scripts, hooks, captions, transcripts and editing plans are generated automatically and may be inaccurate, incomplete or inappropriate for your purpose. Review them before you rely on or publish them. Copilot requests are sent to OpenAI as described in the privacy policy and are subject to usage caps." },
+    { heading: "6. AI features and generated output", blocks: [
+      { type: "paragraph", text: "Copilot suggestions, scripts, hooks, captions, transcripts, editing plans and other automatically generated output may be inaccurate, incomplete or inappropriate for your purpose. Review it before you rely on or publish it. AI requests are processed by the providers described in the privacy policy and are subject to usage caps." },
     ] },
     { heading: "7. Acceptable use", blocks: [
       { type: "list", items: [

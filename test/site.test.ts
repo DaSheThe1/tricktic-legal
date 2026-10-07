@@ -95,7 +95,6 @@ describe("site structure", () => {
             "https://legal.tricktic.com/tricktic-ade/privacy",
           ].includes(url)) ||
           (page.path.startsWith("/tricktic-studio/") && [
-            "https://help.openai.com/en/articles/5722486-how-your-data-is-used-to-improve-model-performance",
             "https://legal.tricktic.com/tricktic-studio/privacy",
           ].includes(url));
         assert.ok(allowed, `unexpected URL in an attribute: ${url}`);

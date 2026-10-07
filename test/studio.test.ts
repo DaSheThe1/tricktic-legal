@@ -10,17 +10,21 @@ test("Studio privacy keeps its provider, retention and deletion clauses", () => 
     "Published and operated by TrickTic (Daniel Shedrinsky)",
     "invitation-only hosted TrickTic Studio service at studio.tricktic.com",
     "We do not keep your Google profile picture or Google access tokens.",
-    "Studio uses no analytics, advertising or third-party cookies",
-    "HOSTKEY runs the server that hosts the Studio application and its database, in a data center in France.",
-    "they are not sent to an external speech-recognition provider",
-    "It does not send media files, storage links, your account identity or credentials.",
-    "Model training is turned off for that account.",
+    "It does not use advertising or cross-site tracking cookies.",
+    "Providers may change as the service develops",
+    "We configure these providers not to use your content to train their models.",
+    "A current list is available from the privacy contact above.",
+    "We do not sell your information or use it for advertising.",
     "Studio is not end-to-end encrypted",
     "Encrypted backups are made daily and kept for at most 30 days.",
     "Files are then removed from storage after at least 125 seconds",
     "Studio is intended for people aged 18 or older",
   ]) assert.ok(visible.includes(clause), clause);
   assert.ok(links(html).some((link) => link.href === "mailto:contact@tricktic.com"));
+  // Providers are described by role so infrastructure can change (owner, 2026-10-07).
+  for (const name of ["HOSTKEY", "Cloudflare", "OpenAI", "France", "R2"]) {
+    assert.ok(!visible.includes(name), `names a provider or location: ${name}`);
+  }
 });
 
 test("Studio terms keep the free pilot, content rights and liability boundaries", () => {
