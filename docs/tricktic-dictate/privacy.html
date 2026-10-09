@@ -115,18 +115,21 @@
 <body>
 <main class="document">
   <h1 class="title">TrickTic Dictate Privacy Policy</h1>
-  <p class="updated">Last updated: October 4, 2026</p>
-  <p class="paragraph">TrickTic Dictate turns your speech into text, either on your device or through a speech provider you choose, using your own API key. This policy covers the Windows app and the Android app from Google Play, and describes optional accounts in macOS preview builds. TrickTic Dictate is published by TrickTic.</p>
+  <p class="updated">Last updated: October 9, 2026</p>
+  <p class="paragraph">TrickTic Dictate turns your speech into text, either on your device or through a speech provider you choose, using your own API key. This policy covers Windows, macOS and Android builds. TrickTic Dictate is published by TrickTic.</p>
   <section>
     <h2 class="heading">What the developer receives</h2>
-    <p class="paragraph">The app has no analytics, advertising, tracking or crash reporting. Account-free use sends no recordings or transcripts to TrickTic. If you choose desktop sign-in or cloud sync, the account and selected synced data described below are handled through services operated for TrickTic. If you email us, we receive what you send.</p>
+    <p class="paragraph">The app has no advertising, tracking or crash reporting and no app-usage analytics system. Account-free use sends no recordings or transcripts to TrickTic. If you choose sign-in or cloud sync, the account and selected synced data described below are handled through services operated for TrickTic. Firebase also processes authentication security and service-maintenance information as described below. If you email us, we receive what you send.</p>
   </section>
   <section>
-    <h2 class="heading">Optional desktop accounts and sync</h2>
+    <h2 class="heading">Optional accounts and sync</h2>
     <p class="paragraph">Windows and macOS desktop builds can offer Google sign-in through Firebase Authentication in TrickTic's metrix-writer project. Google and Firebase process your sign-in; the app keeps your account identifier, display name and email and stores its session credential using Windows data protection or the macOS Keychain. Dictation does not require an account. The Android app from Google Play remains account-free.</p>
+    <p class="paragraph">Android builds that offer accounts, including the private Dev build, use Google sign-in through Firebase Authentication too. Their sign-in credential is held in app-private storage excluded from Android backup and device transfer; their provider API keys are separately encrypted with Android Keystore. Firebase Authentication processes your IP address for authentication security and abuse prevention, plus device, operating-system, app and SDK metadata to provide, maintain and improve its services. This does not enable advertising or dictation-content analytics.</p>
     <p class="paragraph">Signing in alone does not upload your settings, dictionary or history. You separately choose settings and dictionary sync and, with separate consent, text-only transcript history sync. Enabled categories are sent over HTTPS to Cloud Firestore in TrickTic's project so your signed-in devices can restore and sync them. Synced records include device identifiers, revisions and timestamps needed to coordinate changes. Recordings, provider API keys, downloaded models and captured application or clipboard context are excluded from account sync.</p>
+    <p class="paragraph">Synced settings include language, theme, model and dictation preferences and custom polishing instructions. Dictionary sync includes spelling hints, corrections and snippets. Transcript sync includes raw, corrected, polished and edited text and the associated language, model and creation-time metadata. Sync also stores an app-generated device identifier, account consent, change revisions and deletion state to coordinate your devices. These are stored until you request cloud or account deletion; simply disabling sync does not erase them.</p>
     <p class="paragraph">The Firestore database is in Tel Aviv (me-west1); this is not a promise that Google Authentication or every supporting service processes data only in Israel. Cloud sync is not end-to-end encrypted. Google and authorized service administrators can process the stored data. Google's terms and privacy policy apply to its services. Account deletion and session revocation use TrickTic's account service at writer-account.tricktic.com, which receives the authentication needed to act on your account.</p>
     <p class="paragraph">Turning sync off or signing out stops future syncing; it does not itself delete cloud copies or the local files on your devices. In Settings, Account, use the cloud-data deletion controls or Delete account to remove the cloud data or the Firebase account. Account deletion requires a recent Google sign-in. Your local recordings, original transcripts and provider keys stay on your device. You can separately choose whether to keep or remove downloaded account copies; Delete everywhere removes synced copies from other devices when they reconnect. An offline device can retain local copies. The app reports deletion progress and completion; a failed request is not confirmation of deletion. If you cannot access the app, contact contact@tricktic.com for help with a deletion request; we need to verify account ownership before acting.</p>
+    <p class="paragraph">Request account deletion without the app using the <a class="link" href="https://legal.tricktic.com/tricktic-dictate/delete-account">account and data deletion page</a>. Account deletion removes synced content and the Firebase user. A minimal account-deletion fence and cleanup-job receipts retain account and operation identifiers, consent and deletion state to prevent stale sync writes and make retries safe; they contain no dictation or dictionary content and currently have no automatic expiry. Deletion-request emails remain in our correspondence. Firebase Authentication keeps logged IP addresses for a few weeks and removes other deleted authentication information from live and backup systems within 180 days; see <a class="link" href="https://firebase.google.com/support/privacy">Firebase's retention information</a>.</p>
   </section>
   <section>
     <h2 class="heading">Where your audio and text go</h2>
@@ -279,7 +282,7 @@
   </section>
   <section>
     <h2 class="heading">Security</h2>
-    <p class="paragraph">To report a security problem, see the security policy at https://tricktic.com/automation/legal/tricktic-dictate/security.</p>
+    <p class="paragraph">To report a security problem, see the security policy at https://legal.tricktic.com/tricktic-dictate/security.</p>
   </section>
   <section>
     <h2 class="heading">Changes to this policy</h2>

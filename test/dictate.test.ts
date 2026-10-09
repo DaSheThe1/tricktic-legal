@@ -35,12 +35,12 @@ import {
 const LAST_UPDATED = "Last updated: October 4, 2026";
 
 const pages = [
-  { file: "tricktic-dictate/privacy.html", title: "TrickTic Dictate Privacy Policy", updated: LAST_UPDATED },
+  { file: "tricktic-dictate/privacy.html", title: "TrickTic Dictate Privacy Policy", updated: "Last updated: October 9, 2026" },
   { file: "tricktic-dictate/terms.html", title: "TrickTic Dictate Terms of Use", updated: LAST_UPDATED },
   {
     file: "tricktic-dictate/security.html",
     title: "TrickTic Dictate Security Policy",
-    updated: "Last updated: September 24, 2026",
+    updated: "Last updated: October 9, 2026",
   },
 ];
 
@@ -66,7 +66,7 @@ const privacyVerbatim = [
 
 const privacyHeadings = [
   "What the developer receives",
-  "Optional desktop accounts and sync",
+  "Optional accounts and sync",
   "Where your audio and text go",
   "Windows: context and early processing",
   "Other connections",

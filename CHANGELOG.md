@@ -11,6 +11,21 @@ All notable changes to what legal.tricktic.com serves. The format follows
 - Live on legal.tricktic.com since 2026-10-05. The repository moved to the
   TrickTicAI organization, which has verified tricktic.com for GitHub Pages.
 
+## [1.4.0] - 2026-10-09
+
+### Added
+
+- Public, unlisted TrickTic Dictate account-deletion resource at
+  `/tricktic-dictate/delete-account`, with the in-app path, an email request
+  method, ownership verification and the boundaries of cloud/local deletion.
+
+### Changed
+
+- Clarified the shipped account identity, each selective sync category, Firebase
+  security metadata and retained deletion receipts. Current Google Play remains
+  account-free; the private Android account build is described explicitly.
+- Dictate privacy/security references now use the current legal.tricktic.com URLs.
+
 ## [1.3.1] - 2026-10-08
 
 ### Changed

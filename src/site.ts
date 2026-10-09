@@ -8,6 +8,7 @@ import {
   tiktokTermsOfService,
 } from "../content/index.ts";
 import type { LegalDocument } from "../content/index.ts";
+import { DICTATE_ACCOUNT_DELETION_PATH, trickticDictateAccountDeletion } from "../content/tricktic-dictate.ts";
 
 // Every URL this site serves. GitHub Pages serves docs/ at
 // https://legal.tricktic.com and answers an extensionless path from the
@@ -56,6 +57,8 @@ export const documentPages: readonly DocumentPage[] = [
     indexable: true,
     listedUnder: doc.appName,
   })),
+  // Store deletion resource: public and crawlable, but absent from the site index.
+  { path: DICTATE_ACCOUNT_DELETION_PATH, doc: trickticDictateAccountDeletion, indexable: true, listedUnder: null },
   // Submitted to TikTok for Content Posting API review. Public (200 on a cold
   // anonymous request, no gate) but noindex, and kept off the index page.
   { path: "/tiktok-privacy", doc: tiktokPrivacyPolicy, indexable: false, listedUnder: null },
@@ -67,6 +70,7 @@ export function canonicalUrl(path: string): string {
 }
 
 export function legacyUrl(path: string): string | null {
+  if (path === DICTATE_ACCOUNT_DELETION_PATH) return null; // New page; no migrated URL.
   if (path === "/tricktic-ade/privacy") return "https://ade.tricktic.com/privacy";
   if (path.startsWith("/tricktic-ade/")) return null; // New terms have no previously published URL.
   if (path.startsWith("/tricktic-studio/")) return null; // New documents; never published elsewhere.
