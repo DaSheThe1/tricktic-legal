@@ -14,8 +14,8 @@ import type { AppDocument } from "./types";
 //
 // DO NOT edit the wording, add or drop a permission row, or bump
 // `lastUpdated` unless the app's actual behavior changed AND the Data safety
-// form was updated to match. macOS is not a supported public platform yet; its
-// wording is held back in the app repository until it ships.
+// form was updated to match. Desktop accounts are public; current Play remains
+// account-free. MW-RELEASE-12 records the next account-enabled Play worksheet.
 //
 // Unlike TrickTic Timer, this app sends audio and text off the device to the
 // provider the user selects, with the user's own key. The developer still
@@ -28,12 +28,62 @@ const APP_NAME = "TrickTic Dictate";
 // Google cross-checks the two. Not an alias, not a contact form.
 const CONTACT_EMAIL = "contact@tricktic.com";
 const SECURITY_EMAIL = "report@tricktic.com";
-const LEGAL_BASE = "https://tricktic.com/automation/legal/tricktic-dictate";
+const LEGAL_BASE = `https://legal.tricktic.com/${SLUG}`;
+export const DICTATE_ACCOUNT_DELETION_PATH = `/${SLUG}/delete-account`;
+const ACCOUNT_DELETION_URL = `${LEGAL_BASE}/delete-account`;
 
 // Bump only the document whose text actually changes.
-const PRIVACY_UPDATED = "Last updated: October 4, 2026";
+const PRIVACY_UPDATED = "Last updated: October 9, 2026";
 const TERMS_UPDATED = "Last updated: October 4, 2026";
-const SECURITY_UPDATED = "Last updated: September 24, 2026";
+const SECURITY_UPDATED = "Last updated: October 9, 2026";
+
+/** MW-RELEASE-12: public request route independent of an installed app. */
+export const trickticDictateAccountDeletion: AppDocument = {
+  slug: SLUG,
+  appName: APP_NAME,
+  title: `${APP_NAME} Account and Data Deletion`,
+  lastUpdated: "Last updated: October 9, 2026",
+  description: `Request deletion of your ${APP_NAME} account and its cloud data in the app or by email.`,
+  intro: [
+    { type: "paragraph", text: `${APP_NAME} is published by TrickTic. Accounts are optional. This page lets you request deletion of your Writer account and its cloud data without installing or opening the app. The current Google Play release has no accounts; these controls apply to builds that offer Google sign-in, including Windows and macOS.` },
+  ],
+  sections: [
+    {
+      heading: "Delete your account in the app",
+      blocks: [
+        { type: "list", items: [
+          "Open Settings → Account and find Account and cloud data.",
+          "Choose Delete account. Review which downloaded account copies to keep or remove on this device, then confirm. A recent Google sign-in is required to verify ownership.",
+          "Wait for the account service to report completion. If deletion fails or is interrupted, use the unfinished account deletion control to retry; a failed request is not confirmation of deletion.",
+        ] },
+        { type: "paragraph", text: "To erase synced data while keeping your Writer account, use Delete cloud data and choose settings/dictionary or transcript history. Turning sync off, signing out or uninstalling does not by itself delete cloud data." },
+      ],
+    },
+    {
+      heading: "Request deletion without the app",
+      blocks: [
+        { type: "email", label: "Email your account and cloud-data deletion request to", address: CONTACT_EMAIL },
+        { type: "paragraph", text: `Use the subject “${APP_NAME} account deletion” and send it from the Google email address you used to sign in. Say whether you want your entire Writer account and its cloud data deleted, or only a synced data category. We verify account ownership before acting and confirm the result by email. You do not need to reinstall the app.` },
+        { type: "paragraph", text: "Do not send your password, API keys, sign-in codes, recordings or transcripts. If you cannot email from the account address, contact us to arrange ownership verification. A request email alone is not confirmation that deletion is complete." },
+      ],
+    },
+    {
+      heading: "What account deletion removes",
+      blocks: [
+        { type: "paragraph", text: "Account deletion removes the Writer user in Firebase Authentication and the account content stored under that user in Cloud Firestore: synced settings, dictionary entries and snippets, synced raw and processed transcript text, and the synced device and record metadata used to manage that content. The account service deletes the cloud data before removing the Firebase user." },
+        { type: "paragraph", text: "Deleting your Writer account does not delete your Google account. Signing in with Google again later creates a new, empty Writer account." },
+      ],
+    },
+    {
+      heading: "What stays and how to remove it",
+      blocks: [
+        { type: "paragraph", text: "Local recordings, original transcripts, provider keys and downloaded models stay on your devices. You can separately keep or remove downloaded account copies when using the in-app controls. Delete everywhere can remove synced copies as devices reconnect; an offline device can retain a local copy. A request made by email cannot erase files from your devices." },
+        { type: "paragraph", text: "Delete local audio and transcripts using the app's storage controls. Shared or exported files must be deleted where you saved them. Copies held by a speech or text provider are managed under your own account with that provider and must be deleted there." },
+        { type: "paragraph", text: "Cloud data remains until the deletion service completes the request; interrupted jobs are retried. A minimal account-deletion fence and cleanup-job receipts remain to prevent stale sync writes and make deletion retries safe. They retain account and operation identifiers and deletion state, not recordings, transcripts or dictionary content, and currently have no automatic expiry. Deletion-request emails remain in our correspondence. Firebase Authentication keeps logged IP addresses for a few weeks and removes other deleted authentication information from its live and backup systems within 180 days." },
+      ],
+    },
+  ],
+};
 
 export const trickticDictatePrivacyPolicy: AppDocument = {
   slug: SLUG,
@@ -45,7 +95,7 @@ export const trickticDictatePrivacyPolicy: AppDocument = {
   intro: [
     {
       type: "paragraph",
-      text: "TrickTic Dictate turns your speech into text, either on your device or through a speech provider you choose, using your own API key. This policy covers the Windows app and the Android app from Google Play, and describes optional accounts in macOS preview builds. TrickTic Dictate is published by TrickTic.",
+      text: "TrickTic Dictate turns your speech into text, either on your device or through a speech provider you choose, using your own API key. This policy covers Windows, macOS and Android builds. TrickTic Dictate is published by TrickTic.",
     },
   ],
   sections: [
@@ -54,12 +104,12 @@ export const trickticDictatePrivacyPolicy: AppDocument = {
       blocks: [
         {
           type: "paragraph",
-          text: "The app has no analytics, advertising, tracking or crash reporting. Account-free use sends no recordings or transcripts to TrickTic. If you choose desktop sign-in or cloud sync, the account and selected synced data described below are handled through services operated for TrickTic. If you email us, we receive what you send.",
+          text: "The app has no advertising, tracking or crash reporting and no app-usage analytics system. Account-free use sends no recordings or transcripts to TrickTic. If you choose sign-in or cloud sync, the account and selected synced data described below are handled through services operated for TrickTic. Firebase also processes authentication security and service-maintenance information as described below. If you email us, we receive what you send.",
         },
       ],
     },
     {
-      heading: "Optional desktop accounts and sync",
+      heading: "Optional accounts and sync",
       blocks: [
         {
           type: "paragraph",
@@ -67,7 +117,15 @@ export const trickticDictatePrivacyPolicy: AppDocument = {
         },
         {
           type: "paragraph",
+          text: "Android builds that offer accounts, including the private Dev build, use Google sign-in through Firebase Authentication too. Their sign-in credential is held in app-private storage excluded from Android backup and device transfer; their provider API keys are separately encrypted with Android Keystore. Firebase Authentication processes your IP address for authentication security and abuse prevention, plus device, operating-system, app and SDK metadata to provide, maintain and improve its services. This does not enable advertising or dictation-content analytics.",
+        },
+        {
+          type: "paragraph",
           text: "Signing in alone does not upload your settings, dictionary or history. You separately choose settings and dictionary sync and, with separate consent, text-only transcript history sync. Enabled categories are sent over HTTPS to Cloud Firestore in TrickTic's project so your signed-in devices can restore and sync them. Synced records include device identifiers, revisions and timestamps needed to coordinate changes. Recordings, provider API keys, downloaded models and captured application or clipboard context are excluded from account sync.",
+        },
+        {
+          type: "paragraph",
+          text: "Synced settings include language, theme, model and dictation preferences and custom polishing instructions. Dictionary sync includes spelling hints, corrections and snippets. Transcript sync includes raw, corrected, polished and edited text and the associated language, model and creation-time metadata. Sync also stores an app-generated device identifier, account consent, change revisions and deletion state to coordinate your devices. These are stored until you request cloud or account deletion; simply disabling sync does not erase them.",
         },
         {
           type: "paragraph",
@@ -76,6 +134,10 @@ export const trickticDictatePrivacyPolicy: AppDocument = {
         {
           type: "paragraph",
           text: "Turning sync off or signing out stops future syncing; it does not itself delete cloud copies or the local files on your devices. In Settings, Account, use the cloud-data deletion controls or Delete account to remove the cloud data or the Firebase account. Account deletion requires a recent Google sign-in. Your local recordings, original transcripts and provider keys stay on your device. You can separately choose whether to keep or remove downloaded account copies; Delete everywhere removes synced copies from other devices when they reconnect. An offline device can retain local copies. The app reports deletion progress and completion; a failed request is not confirmation of deletion. If you cannot access the app, contact contact@tricktic.com for help with a deletion request; we need to verify account ownership before acting.",
+        },
+        {
+          type: "linked-paragraph",
+          parts: ["Request account deletion without the app using the ", { text: "account and data deletion page", href: ACCOUNT_DELETION_URL }, ". Account deletion removes synced content and the Firebase user. A minimal account-deletion fence and cleanup-job receipts retain account and operation identifiers, consent and deletion state to prevent stale sync writes and make retries safe; they contain no dictation or dictionary content and currently have no automatic expiry. Deletion-request emails remain in our correspondence. Firebase Authentication keeps logged IP addresses for a few weeks and removes other deleted authentication information from live and backup systems within 180 days; see ", { text: "Firebase's retention information", href: "https://firebase.google.com/support/privacy" }, "."],
         },
       ],
     },

@@ -24,6 +24,7 @@ const PUBLISHED_PATHS = [
   "/tricktic-dictate/privacy",
   "/tricktic-dictate/terms",
   "/tricktic-dictate/security",
+  "/tricktic-dictate/delete-account",
   "/tiktok-privacy",
   "/tiktok-terms",
 ];
@@ -88,6 +89,10 @@ describe("site structure", () => {
       for (const url of attributeUrls) {
         const allowed =
           url === canonicalUrl(page.path) || url === "data:," || url.startsWith("mailto:") ||
+          (page.path.startsWith("/tricktic-dictate/") && [
+            "https://legal.tricktic.com/tricktic-dictate/delete-account",
+            "https://firebase.google.com/support/privacy",
+          ].includes(url)) ||
           (page.path.startsWith("/tricktic-ade/") && [
             "https://firebase.google.com/support/privacy",
             "https://developers.openai.com/api/docs/guides/your-data",
@@ -151,7 +156,9 @@ describe("site structure", () => {
   test("REDIRECTS.md maps every moved URL to its new URL", () => {
     const redirects = readFileSync(new URL("../REDIRECTS.md", import.meta.url), "utf8");
     for (const path of PUBLISHED_PATHS) {
-      const row = `| ${legacyUrl(path)} | ${canonicalUrl(path)} |`;
+      const old = legacyUrl(path);
+      if (old === null) continue; // New permanent pages were never migrated.
+      const row = `| ${old} | ${canonicalUrl(path)} |`;
       assert.ok(redirects.includes(row), `REDIRECTS.md is missing the row: ${row}`);
     }
   });
